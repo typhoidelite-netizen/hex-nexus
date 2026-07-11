@@ -402,6 +402,7 @@ public class TablesPanel extends javax.swing.JPanel {
         jScrollPaneTablesFinished.getViewport().setBackground(new Color(255, 255, 255, 50));
 
         restoreFilters();
+        configureHexNexusCommanderLobby();
         setGUISize();
 
         Action openTableAction;
@@ -708,6 +709,48 @@ public class TablesPanel extends javax.swing.JPanel {
         }
     }
 
+    /**
+     * Hex Nexus private Commander lobby. Filtering and labels are simplified,
+     * while XMage's table, deck, join, and rules behavior remains authoritative.
+     */
+    private void configureHexNexusCommanderLobby() {
+        btnNewTable.setText("CREATE COMMANDER GAME");
+        btnNewTable.setToolTipText("Create a private Hex Nexus Commander table");
+        btnNewTable.setFont(btnNewTable.getFont().deriveFont(java.awt.Font.BOLD, 14f));
+        btnNewTable.setPreferredSize(new java.awt.Dimension(250, 42));
+
+        btnNewTournament.setVisible(false);
+        btnQuickStart2Player.setVisible(false);
+        btnQuickStart4Player.setVisible(false);
+        btnQuickStartMCTS.setVisible(false);
+
+        btnTypeMatch.setSelected(true);
+        btnTypeMatch.setText("Commander Games");
+        btnTypeTourneyConstructed.setSelected(false);
+        btnTypeTourneyLimited.setSelected(false);
+        btnTypeTourneyConstructed.setVisible(false);
+        btnTypeTourneyLimited.setVisible(false);
+
+        javax.swing.JToggleButton[] otherFormats = new javax.swing.JToggleButton[]{
+            btnFormatBlock, btnFormatStandard, btnFormatModern, btnFormatPioneer,
+            btnFormatLegacy, btnFormatVintage, btnFormatPremodern,
+            btnFormatOathbreaker, btnFormatTinyLeader, btnFormatLimited, btnFormatOther
+        };
+        for (javax.swing.JToggleButton button : otherFormats) {
+            button.setSelected(false);
+            button.setVisible(false);
+        }
+
+        btnFormatCommander.setSelected(true);
+        btnFormatCommander.setText("Commander Only");
+        btnOpen.setSelected(true);
+        btnPassword.setSelected(true);
+
+        jSeparator2.setVisible(false);
+        jSeparator3.setVisible(false);
+        jSeparator4.setVisible(false);
+        jSeparator5.setVisible(false);
+    }
     public void updateMatches(Collection<MatchView> matches) {
         try {
             matchesModel.loadData(matches);
