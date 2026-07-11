@@ -386,10 +386,7 @@ public class MageFrame extends javax.swing.JFrame implements MageClient {
             setWindowTitle(); // make sure title is actual on startup
         });
 
-        // run what's new checks (loading in background)
-        SwingUtilities.invokeLater(() -> {
-            showWhatsNewDialog(false);
-        });
+        // Hex Nexus: upstream news remains available by manual request.
     }
 
     /**

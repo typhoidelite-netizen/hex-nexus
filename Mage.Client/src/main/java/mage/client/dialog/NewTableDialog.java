@@ -851,8 +851,52 @@ public class NewTableDialog extends MageDialog {
 
         // auto-load last settings
         onLoadSettings(0);
+        applyHexNexusCommanderDefaults();
 
         this.setVisible(true);
+    }
+
+    /**
+     * Hex Nexus Prototype 0.2 host preset.
+     * Keep XMage as the authoritative rules engine while removing repetitive
+     * Commander table configuration from the normal host flow.
+     */
+    private void applyHexNexusCommanderDefaults() {
+        selectComboItemByText(cbDeckType, "Variant Magic - Commander");
+        selectComboItemByText(cbGameType, "Commander Free For All");
+        selectComboItemByText(cbTimeLimit, "None");
+        selectComboItemByText(cbBufferTime, "None");
+        selectComboItemByText(cbSkillLevel, "Casual");
+        selectComboItemByText(cbRange, "ALL");
+        selectComboItemByText(cbAttackOption, "Attack Multiple Players");
+
+        txtName.setText("Hex Nexus Commander");
+        spnNumWins.setValue(1);
+        spnQuitRatio.setValue(100);
+        spnMinimumRating.setValue(0);
+        spnEdhPowerLevel.setValue(0);
+        chkRated.setSelected(false);
+        chkRollbackTurnsAllowed.setSelected(true);
+        chkSpectatorsAllowed.setSelected(false);
+
+        // Commander Free For All supports 3-10 players. Hex Nexus defaults to
+        // its flagship four-seat layout; the dedicated 2-4 selector follows.
+        try {
+            spnNumPlayers.setValue(4);
+        } catch (IllegalArgumentException ex) {
+            logger.warn("Unable to apply four-player Hex Nexus preset", ex);
+        }
+    }
+
+    private void selectComboItemByText(JComboBox comboBox, String text) {
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            Object item = comboBox.getItemAt(i);
+            if (text.equals(String.valueOf(item))) {
+                comboBox.setSelectedIndex(i);
+                return;
+            }
+        }
+        logger.warn("Hex Nexus preset item was not found: " + text);
     }
 
     public TableView getTable() {
