@@ -224,7 +224,7 @@ public class ConnectDialog extends MageDialog {
         lblFlag.setText("User's flag:");
 
         chkAutoConnect.setText("Automatically connect to this server next time");
-        chkAutoConnect.setToolTipText("<HTML>If active this connect dialog will not be shown if you choose to connect.<br>\nInstead XMage tries to connect to the last server you were connected to.");
+        chkAutoConnect.setToolTipText("<HTML>If active this connect dialog will not be shown if you choose to connect.<br>\nInstead Hex Nexus tries to connect to the last server you were connected to.");
         chkAutoConnect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 chkAutoConnectActionPerformed(evt);
@@ -257,7 +257,7 @@ public class ConnectDialog extends MageDialog {
         });
 
         btnRegister.setText("Register new user...");
-        btnRegister.setToolTipText("<html>XMage now supports user authentication.<br>Register your account before you log in.<html>");
+        btnRegister.setToolTipText("<html>Hex Nexus supports optional user authentication.<br>Register your account before you log in.<html>");
         btnRegister.setMargin(new java.awt.Insets(2, 2, 2, 2));
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

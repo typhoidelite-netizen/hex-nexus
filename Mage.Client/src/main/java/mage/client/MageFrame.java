@@ -90,7 +90,7 @@ import java.util.stream.Collectors;
  */
 public class MageFrame extends javax.swing.JFrame implements MageClient {
 
-    private static final String TITLE_NAME = "XMage";
+    private static final String TITLE_NAME = "Hex Nexus";
 
     private static final Logger LOGGER = Logger.getLogger(MageFrame.class);
     private static final String LITE_MODE_ARG = "-lite";
@@ -1085,7 +1085,7 @@ public class MageFrame extends javax.swing.JFrame implements MageClient {
         mageToolbar.add(jSeparator4);
 
         btnConnect.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menu/connect.png"))); // NOI18N
-        btnConnect.setToolTipText("Connect to or disconnect from a XMage server.");
+        btnConnect.setToolTipText("Connect to or disconnect from a Hex Nexus server.");
         btnConnect.setFocusable(false);
         btnConnect.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         btnConnect.addActionListener(new java.awt.event.ActionListener() {

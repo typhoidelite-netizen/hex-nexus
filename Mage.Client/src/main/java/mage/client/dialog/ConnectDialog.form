@@ -171,7 +171,7 @@
     <Component class="javax.swing.JCheckBox" name="chkAutoConnect">
       <Properties>
         <Property name="text" type="java.lang.String" value="Automatically connect to this server next time"/>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;HTML&gt;If active this connect dialog will not be shown if you choose to connect.&lt;br&gt;&#xa;Instead XMage tries to connect to the last server you were connected to."/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;HTML&gt;If active this connect dialog will not be shown if you choose to connect.&lt;br&gt;&#xa;Instead Hex Nexus tries to connect to the last server you were connected to."/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chkAutoConnectActionPerformed"/>
@@ -216,7 +216,7 @@
     <Component class="javax.swing.JButton" name="btnRegister">
       <Properties>
         <Property name="text" type="java.lang.String" value="Register new user..."/>
-        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;XMage now supports user authentication.&lt;br&gt;Register your account before you log in.&lt;html&gt;"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;Hex Nexus supports optional user authentication.&lt;br&gt;Register your account before you log in.&lt;html&gt;"/>
         <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
           <Insets value="[2, 2, 2, 2]"/>
         </Property>

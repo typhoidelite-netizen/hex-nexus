@@ -62,7 +62,7 @@ public class AboutDialog extends MageDialog {
         labelDevs = new javax.swing.JLabel();
 
         setMaximizable(true);
-        setTitle("About XMage");
+        setTitle("About Hex Nexus");
 
         btnOk.setText("Close");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
@@ -71,7 +71,7 @@ public class AboutDialog extends MageDialog {
             }
         });
 
-        jLabel1.setText("XMage client");
+        jLabel1.setText("Hex Nexus Prototype 0.1 - powered by XMage");
 
         lblVersion.setText("0.0.0");
 
