@@ -45,6 +45,7 @@ public class ConnectDialog extends MageDialog {
 
     public ConnectDialog() {
         initComponents();
+        configureHexNexusHostJoinScreen();
 
         this.txtServer.addActionListener(connectAction);
         this.txtPort.addActionListener(connectAction);
@@ -58,6 +59,111 @@ public class ConnectDialog extends MageDialog {
         MageFrame.getDesktop().add(resetPasswordDialog, resetPasswordDialog.isModal() ? JLayeredPane.MODAL_LAYER : JLayeredPane.PALETTE_LAYER);
     }
 
+    /**
+     * Hex Nexus private-play entry screen. The upstream connection machinery is
+     * intentionally preserved; this method only simplifies and relabels its UI.
+     */
+    private void configureHexNexusHostJoinScreen() {
+        setTitle("Hex Nexus - Host or Join");
+
+        lblServer.setText("Host address");
+        lblUserName.setText("Player name");
+        lblPassword.setText("Server password (optional)");
+        btnConnect.setText("JOIN GAME");
+        btnFindLocal.setText("HOST GAME");
+        btnCancel.setText("EXIT");
+        chkAutoConnect.setText("Connect automatically next time");
+
+        txtPort.setText("17171");
+        txtPort.setEditable(false);
+
+        javax.swing.JPanel content = new javax.swing.JPanel(new java.awt.GridBagLayout());
+        content.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 24, 20, 24));
+        java.awt.GridBagConstraints c = new java.awt.GridBagConstraints();
+        c.gridx = 0;
+        c.gridy = 0;
+        c.gridwidth = 2;
+        c.weightx = 1.0;
+        c.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        c.insets = new java.awt.Insets(0, 0, 6, 0);
+
+        javax.swing.JLabel heading = new javax.swing.JLabel("HOST OR JOIN A GAME", javax.swing.SwingConstants.CENTER);
+        heading.setFont(heading.getFont().deriveFont(java.awt.Font.BOLD, 18f));
+        content.add(heading, c);
+
+        c.gridy++;
+        c.insets = new java.awt.Insets(0, 0, 18, 0);
+        javax.swing.JLabel subheading = new javax.swing.JLabel("Private Commander for you and your friends", javax.swing.SwingConstants.CENTER);
+        content.add(subheading, c);
+
+        c.gridwidth = 1;
+        c.weightx = 0.0;
+        c.gridy++;
+        c.gridx = 0;
+        c.insets = new java.awt.Insets(4, 0, 4, 12);
+        content.add(lblUserName, c);
+        c.gridx = 1;
+        c.weightx = 1.0;
+        content.add(txtUserName, c);
+
+        c.gridy++;
+        c.gridx = 0;
+        c.weightx = 0.0;
+        content.add(lblPassword, c);
+        c.gridx = 1;
+        c.weightx = 1.0;
+        content.add(txtPassword, c);
+
+        c.gridy++;
+        c.gridx = 0;
+        c.gridwidth = 2;
+        c.insets = new java.awt.Insets(18, 0, 6, 0);
+        btnFindLocal.setFont(btnFindLocal.getFont().deriveFont(java.awt.Font.BOLD, 14f));
+        btnFindLocal.setPreferredSize(new java.awt.Dimension(430, 48));
+        content.add(btnFindLocal, c);
+
+        c.gridy++;
+        c.insets = new java.awt.Insets(12, 0, 8, 0);
+        javax.swing.JLabel divider = new javax.swing.JLabel("OR JOIN A FRIEND", javax.swing.SwingConstants.CENTER);
+        content.add(divider, c);
+
+        c.gridy++;
+        c.gridx = 0;
+        c.gridwidth = 1;
+        c.weightx = 0.0;
+        c.insets = new java.awt.Insets(4, 0, 4, 12);
+        content.add(lblServer, c);
+        c.gridx = 1;
+        c.weightx = 1.0;
+        content.add(txtServer, c);
+
+        c.gridy++;
+        c.gridx = 0;
+        c.gridwidth = 2;
+        c.insets = new java.awt.Insets(10, 0, 4, 0);
+        btnConnect.setFont(btnConnect.getFont().deriveFont(java.awt.Font.BOLD, 14f));
+        btnConnect.setPreferredSize(new java.awt.Dimension(430, 48));
+        content.add(btnConnect, c);
+
+        c.gridy++;
+        c.insets = new java.awt.Insets(12, 0, 4, 0);
+        content.add(chkAutoConnect, c);
+
+        c.gridy++;
+        c.insets = new java.awt.Insets(6, 0, 0, 0);
+        content.add(lblStatus, c);
+
+        c.gridy++;
+        c.anchor = java.awt.GridBagConstraints.EAST;
+        c.fill = java.awt.GridBagConstraints.NONE;
+        c.insets = new java.awt.Insets(8, 0, 0, 0);
+        btnCancel.setPreferredSize(new java.awt.Dimension(90, 32));
+        content.add(btnCancel, c);
+
+        setContentPane(content);
+        pack();
+        setSize(540, 480);
+    }
     public interface ConnectCallback {
         void onConnectClosed();
     }
@@ -786,6 +892,7 @@ public class ConnectDialog extends MageDialog {
 
     private void btnFindLocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindLocalActionPerformed
         setServerSettings("localhost", "17171", false);
+        btnConnectActionPerformed(evt);
     }//GEN-LAST:event_btnFindLocalActionPerformed
 
     private void btnFindOtherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindOtherActionPerformed
